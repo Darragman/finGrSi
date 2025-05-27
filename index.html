@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финансовая грамотность - ваш путь к финансовой свободе</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .features {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .articles {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .article-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        
+        .article-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .article-meta {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .calculator {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .calculator-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+        
+        .result {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Финансовая грамотность</h1>
+            <p>Освойте искусство управления деньгами и достигните финансовой свободы</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">О проекте</a></li>
+                <li><a href="#features">Основы</a></li>
+                <li><a href="#articles">Статьи</a></li>
+                <li><a href="#calculator">Калькуляторы</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="hero" id="about">
+        <div class="container">
+            <h2>Ваш путь к финансовой независимости начинается здесь</h2>
+            <p>Финансовая грамотность - это не просто умение считать деньги. Это образ мышления, который позволяет вам принимать взвешенные финансовые решения, избегать долговых ловушек и строить устойчивое финансовое будущее.</p>
+            <a href="#features" class="btn">Начать обучение</a>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Основы финансовой грамотности</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Бюджетирование</h3>
+                    <p>Научитесь планировать свои доходы и расходы, контролировать денежные потоки и избегать ненужных трат. Бюджет - это фундамент финансового благополучия.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Сбережения</h3>
+                    <p>Откладывайте минимум 10% от каждого дохода. Создайте финансовую подушку безопасности, которая защитит вас в случае непредвиденных обстоятельств.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Инвестирование</h3>
+                    <p>Деньги должны работать на вас. Изучите основы инвестирования, диверсификации рисков и долгосрочного роста капитала.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Кредиты и долги</h3>
+                    <p>Поймите разницу между хорошими и плохими долгами. Научитесь использовать кредиты с умом и избегать долговых ловушек.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Налоговая грамотность</h3>
+                    <p>Знание налогового законодательства поможет вам оптимизировать расходы и избежать проблем с законом.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Финансовая защита</h3>
+                    <p>Страхование, завещания, пенсионное планирование - важные элементы защиты вашего благосостояния и благополучия вашей семьи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="articles" id="articles">
+        <div class="container">
+            <h2 class="section-title">Полезные статьи</h2>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="article-content">
+                        <h3>Как составить личный бюджет</h3>
+                        <div class="article-meta">15 мая 2023 · 8 мин чтения</div>
+                        <p>Пошаговое руководство по созданию и ведению личного бюджета, которое поможет вам контролировать свои финансы.</p>
+                        <a href="#" class="btn" style="display: inline-block; margin-top: 1rem;">Читать</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="article-content">
+                        <h3>5 ошибок начинающих инвесторов</h3>
+                        <div class="article-meta">10 мая 2023 · 6 мин чтения</div>
+                        <p>Распространенные ошибки, которые совершают новички на фондовом рынке, и как их избежать.</p>
+                        <a href="#" class="btn" style="display: inline-block; margin-top: 1rem;">Читать</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-img" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                    <div class="article-content">
+                        <h3>Как накопить на мечту</h3>
+                        <div class="article-meta">5 мая 2023 · 5 мин чтения</div>
+                        <p>Практические советы по накоплению средств на крупные покупки без ущерба для текущего бюджета.</p>
+                        <a href="#" class="btn" style="display: inline-block; margin-top: 1rem;">Читать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <h2 class="section-title">Финансовые калькуляторы</h2>
+            <div class="calculator-form">
+                <h3>Калькулятор сложных процентов</h3>
+                <p>Узнайте, как ваши сбережения могут расти с течением времени благодаря силе сложных процентов.</p>
+                
+                <div class="form-group">
+                    <label for="initial-amount">Начальная сумма:</label>
+                    <input type="number" id="initial-amount" placeholder="10000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="monthly-contribution">Ежемесячное пополнение:</label>
+                    <input type="number" id="monthly-contribution" placeholder="1000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest-rate">Годовая процентная ставка (%):</label>
+                    <input type="number" id="interest-rate" placeholder="7" step="0.1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="years">Срок инвестирования (лет):</label>
+                    <input type="number" id="years" placeholder="5">
+                </div>
+                
+                <button class="btn" id="calculate-btn" style="width: 100%;">Рассчитать</button>
+                
+                <div class="result" id="result">
+                    <h4>Результаты:</h4>
+                    <p>Итоговая сумма: <span id="total-amount">0</span> руб.</p>
+                    <p>Ваши вложения: <span id="total-contributions">0</span> руб.</p>
+                    <p>Начисленные проценты: <span id="total-interest">0</span> руб.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">О нас</a>
+                <a href="#">Контакты</a>
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
+            </div>
+            <p>&copy; 2023 Финансовая грамотность. Все права защищены.</p>
+            <p style="margin-top: 1rem;">Подпишитесь на нашу рассылку для получения новых статей и советов</p>
+            <form style="margin-top: 1rem; display: flex; max-width: 500px; margin-left: auto; margin-right: auto;">
+                <input type="email" placeholder="Ваш email" style="flex-grow: 1; padding: 0.8rem; border: none; border-radius: 5px 0 0 5px;">
+                <button type="submit" class="btn" style="border-radius: 0 5px 5px 0;">Подписаться</button>
+            </form>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            // Получаем значения из формы
+            const initialAmount = parseFloat(document.getElementById('initial-amount').value) || 0;
+            const monthlyContribution = parseFloat(document.getElementById('monthly-contribution').value) || 0;
+            const annualInterestRate = parseFloat(document.getElementById('interest-rate').value) || 0;
+            const years = parseInt(document.getElementById('years').value) || 0;
+            
+            // Рассчитываем месячную процентную ставку
+            const monthlyInterestRate = annualInterestRate / 100 / 12;
+            
+            // Рассчитываем количество месяцев
+            const months = years * 12;
+            
+            // Рассчитываем будущую стоимость
+            let futureValue = initialAmount;
+            let totalContributions = initialAmount;
+            
+            for (let i = 0; i < months; i++) {
+                futureValue = (futureValue + monthlyContribution) * (1 + monthlyInterestRate);
+                totalContributions += monthlyContribution;
+            }
+            
+            // Округляем значения
+            futureValue = Math.round(futureValue * 100) / 100;
+            totalContributions = Math.round(totalContributions * 100) / 100;
+            const totalInterest = Math.round((futureValue - totalContributions) * 100) / 100;
+            
+            // Отображаем результаты
+            document.getElementById('total-amount').textContent = futureValue.toLocaleString();
+            document.getElementById('total-contributions').textContent = totalContributions.toLocaleString();
+            document.getElementById('total-interest').textContent = totalInterest.toLocaleString();
+            
+            // Показываем блок с результатами
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
